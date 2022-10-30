@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>list smartphone</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<form id="add-smartphone">
+    <table id="smartphoneList">
+        <tr>
+            <td>Producer</td>
+            <td>Model</td>
+            <td>Price</td>
+            <td>Delete</td>
+        </tr>
+        <th:block th:each="smart :${smartphone}">
+            <tr>
+                <td th:text="${smart.producer}"></td>
+                <td th:text="${smart.model}"></td>
+                <td th:text="${smart.price}"></td>
+                <td><a class="deleteSmartphone" th:href="${smart.getId()}">Delete</a></td>
+            </tr>
+        </th:block>
+        <tr>
+            <td>Producer:</td>
+            <td><input type="text" id="producer" placeholder="producer"></td>
+        </tr>
+        <tr>
+            <td>Model:</td>
+            <td><input type="text" id="model" placeholder="model"></td>
+        </tr>
+        <tr>
+            <td>price:</td>
+            <td><input type="text" id="price" placeholder="price"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" onclick="addNewSmartPhone()"></td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
+<script type="text/javascript" src="name.js"></script>
+
